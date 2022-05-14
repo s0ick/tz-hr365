@@ -1,7 +1,7 @@
 import React from 'react';
 
-export function root() {
+export function AppPage() {
   return (
     <div>{'Hello'}</div>
-  )
+  );
 }
