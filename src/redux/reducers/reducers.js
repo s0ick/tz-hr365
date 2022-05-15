@@ -1,15 +1,21 @@
 export const setTableReducer = (state, action) => {
-  state.table = action.payload;
+  state.content = action.payload;
 };
 
 export const setRowReducer = (state, action) => {
-  state.table = {...state.table}.content.push(action.payload);
+  const newContent = [...state.content];
+  newContent.push(action.payload);
+  state.content = newContent;
 };
 
 export const deleteRowReducer = (state, action) => {
-  state.table = {...state.table}.content.slice(action.payload, action.payload);
+  state.content = [...state.content].slice(action.payload, action.payload);
 };
 
 export const setFieldReducer = (state, action) => {
   state[action.payload.field] = action.payload.value;
+};
+
+export const setIsReadyForm = (state, action) => {
+  state.isReady = action.payload;
 };

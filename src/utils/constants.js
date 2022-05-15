@@ -1,3 +1,5 @@
+export const NOOP_ACTION = {type: null};
+
 export const TYPES = {
   DATE: 'DATE',
   SELECTOR: 'SELECTOR',
@@ -28,7 +30,7 @@ export const PLACES = {
 };
 
 export const MIN_WIDTH_FIELDS = {
-  SMALL: 150,
+  SMALL: 138,
   MEDIUM: 240,
   LARGE: 525
 };

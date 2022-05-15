@@ -3,10 +3,10 @@ import {DatePicker, Form} from 'antd';
 import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 
-export function AppFilterDate({field, setField}) {
+export function AppFilterDate({field, setField, value}) {
   const onChangeCallback = useCallback(
     (moment, value) => {
-      setField({id: field.id, value});
+      setField({id: field.id, value: {date: value, moment}});
     }, [field]
   );
 
@@ -15,6 +15,7 @@ export function AppFilterDate({field, setField}) {
       <DatePicker
         onChange={onChangeCallback}
         placeholder={field.placeholder}
+        value={value.moment}
       />
     </Form.Item>
   );
@@ -22,5 +23,6 @@ export function AppFilterDate({field, setField}) {
 
 AppFilterDate.propTypes = {
   field: PropTypes.object,
-  setField: PropTypes.func
+  setField: PropTypes.func,
+  value: PropTypes.object
 }

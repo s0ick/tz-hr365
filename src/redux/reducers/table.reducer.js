@@ -5,7 +5,13 @@ import {deleteRowReducer, setRowReducer, setTableReducer} from './reducers';
 const tableDataSlice = createSlice({
   name: 'app/table',
   initialState: {
-    table: null
+    titleRow: [
+      'Date of creation',
+      'Product',
+      'Point of loading',
+      'Point of unloading'
+    ],
+    content: null
   },
   reducers: {
     setTable: setTableReducer,
