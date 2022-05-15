@@ -1,5 +1,12 @@
 export const NOOP_ACTION = {type: null};
 
+export const ID_FIELDS = {
+  DATE: 'date',
+  PRODUCT: 'product',
+  LOADING_PLACE: 'loadingPlace',
+  UNLOADING_PLACE: 'unloadingPlace'
+};
+
 export const TYPES = {
   DATE: 'DATE',
   SELECTOR: 'SELECTOR',

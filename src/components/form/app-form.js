@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import {setValue} from '../../redux/reducers/form.reducer';
 import {setRow} from '../../redux/reducers/table.reducer';
 import {getForm} from '../../redux/selectors/form.selectors';
+import {combineRow} from '../../utils/form.utils';
 import {TYPES} from '../../utils/constants';
 
 import {AppFilterSelect} from './filters/app-filter-select';
@@ -25,26 +26,7 @@ export function AppForm({config}) {
 
   const setRequest = useCallback(
     () => {
-      const {date, product, loadingPlace, unloadingPlace} = formState;
-
-      const dateCol = {
-        type: TYPES.DATE,
-        value: date.date
-      };
-      const productCol = {
-        type: TYPES.TEXT,
-        value: product
-      };
-      const loadingPlaceCol = {
-        type: TYPES.SELECTOR,
-        value: loadingPlace
-      };
-      const unloadingPlaceCol = {
-        type: TYPES.SELECTOR,
-        value: unloadingPlace
-      };
-
-      dispatch(setRow([dateCol, productCol, loadingPlaceCol, unloadingPlaceCol]));
+      dispatch(setRow(combineRow(formState)));
     }, [formState]
   );
 
