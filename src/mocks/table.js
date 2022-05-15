@@ -4,8 +4,8 @@ export const TABLE_MOCK = {
   titleRow: [
     'Date of creation',
     'Product',
-    'Loading place',
-    'Place of unloading'
+    'Point of loading',
+    'Point of unloading'
   ],
   content: [
     [

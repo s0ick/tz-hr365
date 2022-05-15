@@ -25,4 +25,10 @@ export const PLACES = {
     'Lyublinskaya st., 169 k2, Moscow, 109652',
     'Novoslobodskaya st., 19A, Sobolikha, Moscow region, 143985'
   ]
-}
+};
+
+export const MIN_WIDTH_FIELDS = {
+  SMALL: 150,
+  MEDIUM: 240,
+  LARGE: 525
+};
