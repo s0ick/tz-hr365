@@ -1,7 +1,3 @@
-export const setTableReducer = (state, action) => {
-  state.content = action.payload;
-};
-
 export const setRowReducer = (state, action) => {
   const newContent = [...state.content];
   newContent.push(action.payload);

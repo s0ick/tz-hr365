@@ -1,35 +1,23 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import React from 'react';
 import {Typography} from 'antd';
 import {Layout} from 'antd';
 import 'antd/dist/antd.css';
 
-import {useIsFirstRender} from '../hooks/useIsFirstRender';
-import {setTable} from '../redux/reducers/table.reducer';
 import {CONFIG_FROM} from '../mocks/form';
-import {TABLE_MOCK} from '../mocks/table';
 
 import {AppForm} from './form/app-form';
+import {AppTable} from './table/app-table';
 
 const {Title} = Typography;
 const {Header, Content} = Layout;
 
 export function AppPage() {
-  const isFirstRender = useIsFirstRender();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isFirstRender) {
-      dispatch(setTable(TABLE_MOCK));
-    }
-  }, [dispatch, isFirstRender])
-
   return (
     <Layout className={'layout'}>
-      <Header style={{paddingTop: '10px'}}>
+      <Header style={{paddingTop: '15px'}}>
         <Title
           style={{color: '#fff'}}
-          level={2}
+          level={3}
         >
           {'Request Module'}
         </Title>
@@ -37,6 +25,10 @@ export function AppPage() {
 
       <Content style={{padding: '20px'}}>
         <AppForm config={CONFIG_FROM}/>
+      </Content>
+
+      <Content style={{padding: '20px', backgroundColor: '#fff'}}>
+        <AppTable/>
       </Content>
     </Layout>
   );

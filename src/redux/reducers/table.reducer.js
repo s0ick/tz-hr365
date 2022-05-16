@@ -1,20 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {deleteRowReducer, setRowReducer, setTableReducer} from './reducers';
+import {columnsTableMock, contentTableMock} from '../../mocks/table';
+
+import {deleteRowReducer, setRowReducer} from './reducers';
+
 
 const tableDataSlice = createSlice({
   name: 'app/table',
   initialState: {
-    titleRow: [
-      'Date of creation',
-      'Product',
-      'Point of loading',
-      'Point of unloading'
-    ],
-    content: null
+    columns: columnsTableMock,
+    content: contentTableMock
   },
   reducers: {
-    setTable: setTableReducer,
     setRow: setRowReducer,
     deleteRow: deleteRowReducer
   }
@@ -22,7 +19,6 @@ const tableDataSlice = createSlice({
 
 export const {
   actions: {
-    setTable,
     setRow,
     deleteRow
   },
