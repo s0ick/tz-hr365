@@ -8,7 +8,7 @@ export const columnsTableMock = [
     key: 'number'
   },
   {
-    title: 'Date of creation',
+    title: 'Delivery date',
     dataIndex: ID_FIELDS.DATE,
     key: ID_FIELDS.DATE,
     render: col => renderCol(col)

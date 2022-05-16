@@ -7,7 +7,6 @@ import 'antd/dist/antd.css';
 import {setValue} from '../../redux/reducers/form.reducer';
 import {setRow} from '../../redux/reducers/table.reducer';
 import {getForm} from '../../redux/selectors/form.selectors';
-import {combineRow} from '../../utils/form.utils';
 import {TYPES} from '../../utils/constants';
 
 import {AppFilterSelect} from './filters/app-filter-select';
@@ -26,8 +25,8 @@ export function AppForm({config}) {
 
   const setRequest = useCallback(
     () => {
-      dispatch(setRow(combineRow(formState)));
-    }, [formState]
+      dispatch(setRow(formState));
+    }, [formState, dispatch]
   );
 
   return (
