@@ -1,4 +1,3 @@
-import {renderCol} from '../utils/table.utils';
 import {ID_FIELDS, PLACES, PRODUCTS, TYPES} from '../utils/constants';
 
 export const columnsTableMock = [
@@ -10,33 +9,32 @@ export const columnsTableMock = [
   {
     title: 'Delivery date',
     dataIndex: ID_FIELDS.DATE,
-    key: ID_FIELDS.DATE,
-    render: col => renderCol(col)
+    key: ID_FIELDS.DATE
   },
   {
     title: 'Product',
     dataIndex: ID_FIELDS.PRODUCT,
-    key: ID_FIELDS.PRODUCT,
-    render: col => renderCol(col)
+    key: ID_FIELDS.PRODUCT
   },
   {
     title: 'Point of loading',
     dataIndex: ID_FIELDS.LOADING_PLACE,
-    key: ID_FIELDS.LOADING_PLACE,
-    render: col => renderCol(col)
+    key: ID_FIELDS.LOADING_PLACE
   },
   {
     title: 'Point of unloading',
     dataIndex: ID_FIELDS.UNLOADING_PLACE,
-    key: ID_FIELDS.UNLOADING_PLACE,
-    render: col => renderCol(col)
+    key: ID_FIELDS.UNLOADING_PLACE
   }
 ];
 
 export const contentTableMock = [
   {
     key: '1',
-    number: 1,
+    number: {
+      type: TYPES.TEXT,
+      value: 1
+    },
     date: {
       type: TYPES.DATE,
       value: '2022-05-12'
@@ -48,17 +46,22 @@ export const contentTableMock = [
     loadingPlace: {
       type: TYPES.SELECTOR,
       value: PLACES.LOADING[1],
-      list: 'LOADING'
+      list: 'LOADING',
+      numRow: 1
     },
     unloadingPlace: {
       type: TYPES.SELECTOR,
       value: PLACES.UNLOADING[2],
-      list: 'UNLOADING'
+      list: 'UNLOADING',
+      numRow: 1
     }
   },
   {
     key: '2',
-    number: 2,
+    number: {
+      type: TYPES.TEXT,
+      value: 2
+    },
     date: {
       type: TYPES.DATE,
       value: '2022-05-10'
@@ -70,12 +73,14 @@ export const contentTableMock = [
     loadingPlace: {
       type: TYPES.SELECTOR,
       value: PLACES.LOADING[0],
-      list: 'LOADING'
+      list: 'LOADING',
+      numRow: 2
     },
     unloadingPlace: {
       type: TYPES.SELECTOR,
       value: PLACES.UNLOADING[1],
-      list: 'UNLOADING'
+      list: 'UNLOADING',
+      numRow: 2
     }
   },
 ];

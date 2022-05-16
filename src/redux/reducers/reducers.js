@@ -4,7 +4,10 @@ export const setRowReducer = (state, action) => {
   const rowsCount = state.content.length;
   const newRow = {
     key: `${rowsCount + 1}`,
-    number: rowsCount + 1
+    number: {
+      type: TYPES.TEXT,
+      value: rowsCount + 1
+    }
   };
 
   for (let key in action.payload) {
@@ -23,12 +26,15 @@ export const setRowReducer = (state, action) => {
           break;
         default:
           newCol.type = TYPES.SELECTOR;
+          newCol.numRow = rowsCount + 1;
 
           if (ID_FIELDS.LOADING_PLACE === key) {
             newCol.list = 'LOADING';
             break;
           }
+
           newCol.list = 'UNLOADING';
+          break;
       }
       newRow[key] = {...newCol};
     }
@@ -41,6 +47,19 @@ export const setRowReducer = (state, action) => {
 
 export const deleteRowReducer = (state, action) => {
   state.content = [...state.content].slice(action.payload, action.payload);
+};
+
+export const updateColReducer = (state, action) => {
+  const {numRow, value, list} = action.payload;
+  const newContent = [...state.content];
+
+  if (list === 'LOADING') {
+    newContent[numRow - 1].loadingPlace.value = value;
+  } else {
+    newContent[numRow - 1].unloadingPlace.value = value;
+  }
+
+  state.content = newContent;
 };
 
 export const setFieldReducer = (state, action) => {

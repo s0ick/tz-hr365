@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 import {columnsTableMock, contentTableMock} from '../../mocks/table';
 
-import {deleteRowReducer, setRowReducer} from './reducers';
+import {deleteRowReducer, setRowReducer, updateColReducer} from './reducers';
 
 
 const tableDataSlice = createSlice({
@@ -13,6 +13,7 @@ const tableDataSlice = createSlice({
   },
   reducers: {
     setRow: setRowReducer,
+    updateCol: updateColReducer,
     deleteRow: deleteRowReducer
   }
 });
@@ -20,6 +21,7 @@ const tableDataSlice = createSlice({
 export const {
   actions: {
     setRow,
+    updateCol,
     deleteRow
   },
   reducer: tableDataReducer
