@@ -1,10 +1,12 @@
 import {combineEpics, storeEpic} from 'redux-observable';
 
-import {appReadyFormEpic, appReplaceFormEpic} from './app.epic';
+import {appReadyFormEpic, appReplaceFormEpic, getLoadingPointCoordsEpic, geUnlLoadingPointCoordsEpic} from './app.epic';
 
 export const appEpics = [
   appReadyFormEpic,
-  appReplaceFormEpic
+  appReplaceFormEpic,
+  getLoadingPointCoordsEpic,
+  geUnlLoadingPointCoordsEpic
 ];
 
 export const rootEpic = combineEpics(...appEpics);

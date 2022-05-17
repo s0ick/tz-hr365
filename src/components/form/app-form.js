@@ -6,7 +6,7 @@ import 'antd/dist/antd.css';
 
 import {setValue} from '../../redux/reducers/form.reducer';
 import {setRow} from '../../redux/reducers/table.reducer';
-import {getForm} from '../../redux/selectors/form.selectors';
+import {getForm} from '../../redux/selectors/index.selectors';
 import {TYPES} from '../../utils/constants';
 
 import {AppFilterSelect} from './filters/app-filter-select';

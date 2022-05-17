@@ -4,3 +4,12 @@ body {
   -khtml-user-select: none;
   user-select: none;
 }
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.ant-table-selection-column {
+  display: none;
+}

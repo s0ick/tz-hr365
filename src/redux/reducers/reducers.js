@@ -69,3 +69,11 @@ export const setFieldReducer = (state, action) => {
 export const setIsReadyForm = (state, action) => {
   state.isReady = action.payload;
 };
+
+export const setCurrentRowReducer = (state, action) => {
+  state.currentRow = action.payload;
+};
+
+export const setCoordsReducer = (state, action) => {
+  state[action.payload.point] = action.payload.data;
+};

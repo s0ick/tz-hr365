@@ -99,13 +99,13 @@ export const contentTableMock = [
     },
     loadingPlace: {
       type: TYPES.SELECTOR,
-      value: PLACES.LOADING[0],
+      value: PLACES.LOADING[2],
       list: 'LOADING',
       numRow: 3
     },
     unloadingPlace: {
       type: TYPES.SELECTOR,
-      value: PLACES.UNLOADING[1],
+      value: PLACES.UNLOADING[0],
       list: 'UNLOADING',
       numRow: 3
     }
@@ -126,13 +126,13 @@ export const contentTableMock = [
     },
     loadingPlace: {
       type: TYPES.SELECTOR,
-      value: PLACES.LOADING[0],
+      value: PLACES.LOADING[2],
       list: 'LOADING',
       numRow: 4
     },
     unloadingPlace: {
       type: TYPES.SELECTOR,
-      value: PLACES.UNLOADING[1],
+      value: PLACES.UNLOADING[2],
       list: 'UNLOADING',
       numRow: 4
     }
@@ -153,7 +153,7 @@ export const contentTableMock = [
     },
     loadingPlace: {
       type: TYPES.SELECTOR,
-      value: PLACES.LOADING[0],
+      value: PLACES.LOADING[1],
       list: 'LOADING',
       numRow: 5
     },

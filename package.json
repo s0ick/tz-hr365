@@ -6,17 +6,21 @@
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.1",
     "antd": "^4.20.4",
+    "leaflet": "^1.8.0",
+    "leaflet-routing-machine": "^3.2.12",
     "lodash": "^4.17.21",
     "moment": "^2.29.3",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-leaflet": "^4.0.0",
     "react-redux": "^8.0.1",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "redux-observable": "^2.0.0",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "rxjs": "^7.5.5"
   },
   "scripts": {
     "start": "react-scripts start",

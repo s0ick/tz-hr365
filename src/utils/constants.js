@@ -1,5 +1,11 @@
 export const NOOP_ACTION = {type: null};
 
+export const ACCESS_TOKEN = 'pk.eyJ1IjoiczBpY2siLCJhIjoiY2wzYTluNXl6MDNnZDNkcGRwbmU5dndyZSJ9.1fxq1FHonzjLDELXX3LXGg';
+export const API_KEY = '5b3ce3597851110001cf62489ef55cecf47f4af1b9c07cbab261b2c3';
+
+export const BASE_URL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+export const MARKER_ICON = 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png';
+
 export const ID_FIELDS = {
   DATE: 'date',
   PRODUCT: 'product',
@@ -25,14 +31,14 @@ export const PRODUCTS = [
 
 export const PLACES = {
   LOADING: [
-    'Ostafevskaya st., 10, Moscow, Moscow region, 142172',
-    'Mayakovsky st., 27, Elektrougli, Moscow region, 142461',
-    'Yubileinaya st., 11, building 3, Zheleznodorozhny, Moscow region, 143986'
+    'Остафьевская ул., 10, Москва, 108852',
+    'ул. Школьная, Электроугли, Московская обл., 142461',
+    'ул. Юбилейная, 10, Железнодорожный, Московская обл., 143986'
   ],
   UNLOADING: [
-    'Lermontovsky pr., 19, bldg. 2, Moscow, 109153',
-    'Lyublinskaya st., 169 k2, Moscow, 109652',
-    'Novoslobodskaya st., 19A, Sobolikha, Moscow region, 143985'
+    'Лермонтовский пр., 19, корп. 2, Москва, 109153',
+    'Люблинская ул., 169 к2, Москва, 109652',
+    'ул. Новослободская, 27, Пуршево, Московская обл., 143985'
   ]
 };
 

@@ -3,9 +3,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Table} from 'antd';
 import PropTypes from 'prop-types';
 
-import {getTable} from '../../redux/selectors/table.selectors';
+import {getCurrentRow, getTable} from '../../redux/selectors/index.selectors';
 import {updateCol} from '../../redux/reducers/table.reducer';
 import {copyObject, renderCol} from '../../utils/table.utils';
+import {setCurrentRow, replaceMap} from '../../redux/reducers/map.reducer';
 
 const defaultStyles = {
   backgroundColor: '#fff',
@@ -16,6 +17,7 @@ const defaultStyles = {
 
 export function AppTable({width}) {
   const {columns, content} = useSelector(getTable);
+  const currentRow = useSelector(getCurrentRow);
   const dispatch = useDispatch();
 
   const onUpdatePoint = useCallback(
@@ -35,11 +37,32 @@ export function AppTable({width}) {
     }, [columns]
   );
 
+  const onTargetRow = useCallback(
+    record => {
+      return {
+        onClick: event => {
+          const target = event.target;
+
+          if (target.tagName === 'TR' || target.tagName === 'TD') {
+            const copy = copyObject(currentRow);
+            dispatch(replaceMap());
+
+            if (record.key !== copy?.key) {
+              dispatch(setCurrentRow(record));
+            }
+          }
+        }
+      }
+    }, [dispatch, currentRow]
+  );
+
   return (
     <div style={{...defaultStyles, width}}>
       <Table
+        onRow={onTargetRow}
         columns={customColumns}
         dataSource={content}
+        rowSelection={currentRow && {selectedRowKeys: currentRow.key}}
       />
     </div>
   );
