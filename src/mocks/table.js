@@ -25,6 +25,10 @@ export const columnsTableMock = [
     title: 'Point of unloading',
     dataIndex: ID_FIELDS.UNLOADING_PLACE,
     key: ID_FIELDS.UNLOADING_PLACE
+  },
+  {
+    title: 'Action',
+    key: 'operation'
   }
 ];
 

@@ -4,8 +4,8 @@ import {Table} from 'antd';
 import PropTypes from 'prop-types';
 
 import {getCurrentRow, getTable} from '../../redux/selectors/index.selectors';
-import {updateCol} from '../../redux/reducers/table.reducer';
-import {copyObject, renderCol} from '../../utils/table.utils';
+import {deleteRow, updateCol} from '../../redux/reducers/table.reducer';
+import {copyObject, renderActionCol, renderCol} from '../../utils/table.utils';
 import {setCurrentRow, replaceMap} from '../../redux/reducers/map.reducer';
 
 const defaultStyles = {
@@ -26,12 +26,23 @@ export function AppTable({width}) {
     }, [dispatch]
   );
 
+  const actionDeleteRow = useCallback(
+    num => {
+      dispatch(deleteRow(num));
+    }, [dispatch]
+  );
+
   const customColumns = useMemo(
     () => {
       const newColumns = copyObject(columns);
 
       return newColumns.map(column => {
-        column.render = colValue => renderCol(colValue, onUpdatePoint);
+        if (column.title !== 'Action') {
+          column.render = colValue => renderCol(colValue, onUpdatePoint);
+          return column;
+        }
+
+        column.render = colValue => renderActionCol(colValue, actionDeleteRow);
         return column;
       });
     }, [columns]

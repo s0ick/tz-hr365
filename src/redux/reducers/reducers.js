@@ -1,4 +1,4 @@
-import {ID_FIELDS, TYPES} from '../../utils/constants';
+import {ID_FIELDS, PLACES, PRODUCTS, TYPES} from '../../utils/constants';
 
 export const setRowReducer = (state, action) => {
   const rowsCount = state.content.length;
@@ -46,7 +46,25 @@ export const setRowReducer = (state, action) => {
 };
 
 export const deleteRowReducer = (state, action) => {
-  state.content = [...state.content].slice(action.payload, action.payload);
+  const newContent = [];
+  let count = 0;
+
+  state.content.forEach((row, index) => {
+    if (index !== action.payload) {
+      ++count;
+      const newRow = {
+        ...row,
+        key: `${count}`,
+        number: {
+          type: TYPES.TEXT,
+          value: count
+        }
+      };
+      newContent.push(newRow);
+    }
+  });
+
+  state.content = newContent;
 };
 
 export const updateColReducer = (state, action) => {

@@ -15,3 +15,6 @@ export const renderCol = (col, onUpdate = () => {}) => {
     default: return col.value;
   }
 };
+
+export const renderActionCol = (col, deleteRow = () => {}) =>
+  <a onClick={() => deleteRow(col.number.value - 1)}>{'Delete'}</a>;
