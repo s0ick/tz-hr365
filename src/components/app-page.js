@@ -3,7 +3,7 @@ import {Space, Typography, Spin, Layout} from 'antd';
 import 'antd/dist/antd.css';
 
 import {useElementWidth} from '../hooks/useElementWidth';
-import {CONFIG_FROM} from '../mocks/form';
+import {configFormMock} from '../mocks/form';
 
 import {AppForm} from './form/app-form';
 import {AppTable} from './table/app-table';
@@ -50,7 +50,7 @@ export function AppPage() {
       </Header>
 
       <Content style={{padding: '20px'}}>
-        <AppForm config={CONFIG_FROM}/>
+        <AppForm config={configFormMock}/>
 
         {isLoading && <Spin size={'large'}/>}
         {!isLoading && (

@@ -1,6 +1,6 @@
 import {ID_FIELDS, MIN_WIDTH_FIELDS, PLACES, PRODUCTS, TYPES} from '../utils/constants';
 
-export const CONFIG_FROM = [
+export const configFormMock = [
   {
     type: TYPES.DATE,
     id: ID_FIELDS.DATE,
@@ -28,4 +28,4 @@ export const CONFIG_FROM = [
     data: PLACES.UNLOADING,
     minWidth: MIN_WIDTH_FIELDS.LARGE
   }
-]
+];
