@@ -6,7 +6,7 @@ const defaultStyles = {
   width: '4px',
   position: 'relative',
   backgroundColor: '#ccc',
-  transaction: 'background-color .35s'
+  transition: 'background-color .35s'
 };
 
 export function AppSlider({setWidth}) {
@@ -38,12 +38,14 @@ export function AppSlider({setWidth}) {
         style={{
           position: 'absolute',
           top: '48%',
-          left: '-11px',
-          width: '28px',
-          height: '28px',
+          left: isMouseDown ? '-16px' : '-11px',
+          width: isMouseDown ? '36px' : '28px',
+          height: isMouseDown ? '36px' : '28px',
           borderRadius: '50%',
           backgroundColor: '#1890ff',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          zIndex: 9999,
+          transition: 'width .35s, height .35s, left .35s'
         }}
         onMouseMove={onMouseMoveBtn}
         onMouseDown={onMouseDownBtn}

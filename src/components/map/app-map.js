@@ -29,10 +29,6 @@ export function AppMap({width}) {
       <MapContainer
         center={defaultSettings.position}
         zoom={defaultSettings.zoom}
-        style={{
-          height: defaultStyles.height,
-          width
-        }}
       >
         <TileLayer
           attribution={`&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors`}
