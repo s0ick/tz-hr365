@@ -91,11 +91,11 @@ export const contentTableMock = [
     },
     date: {
       type: TYPES.DATE,
-      value: '2022-05-10'
+      value: '2022-05-14'
     },
     product: {
       type: TYPES.TEXT,
-      value: PRODUCTS[2]
+      value: PRODUCTS[3]
     },
     loadingPlace: {
       type: TYPES.SELECTOR,
@@ -118,11 +118,11 @@ export const contentTableMock = [
     },
     date: {
       type: TYPES.DATE,
-      value: '2022-05-10'
+      value: '2022-05-15'
     },
     product: {
       type: TYPES.TEXT,
-      value: PRODUCTS[2]
+      value: PRODUCTS[4]
     },
     loadingPlace: {
       type: TYPES.SELECTOR,
@@ -145,11 +145,11 @@ export const contentTableMock = [
     },
     date: {
       type: TYPES.DATE,
-      value: '2022-05-10'
+      value: '2022-05-16'
     },
     product: {
       type: TYPES.TEXT,
-      value: PRODUCTS[2]
+      value: PRODUCTS[0]
     },
     loadingPlace: {
       type: TYPES.SELECTOR,

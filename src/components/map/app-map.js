@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import {MapContainer, TileLayer} from 'react-leaflet'
@@ -23,11 +23,6 @@ const defaultStyles = {
 
 export function AppMap({width}) {
   const points = useSelector(getCoords);
-
-  // useEffect(() => {
-  //   console.log('Rerender!');
-  //   console.log(points);
-  // }, [points]);
 
   return (
     <div style={{...defaultStyles, width}}>

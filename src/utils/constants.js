@@ -1,10 +1,7 @@
 export const NOOP_ACTION = {type: null};
 
 export const ACCESS_TOKEN = 'pk.eyJ1IjoiczBpY2siLCJhIjoiY2wzYTluNXl6MDNnZDNkcGRwbmU5dndyZSJ9.1fxq1FHonzjLDELXX3LXGg';
-export const API_KEY = '5b3ce3597851110001cf62489ef55cecf47f4af1b9c07cbab261b2c3';
-
 export const BASE_URL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
-export const MARKER_ICON = 'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png';
 
 export const ID_FIELDS = {
   DATE: 'date',
