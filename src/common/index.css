@@ -1,0 +1,6 @@
+body {
+  background-color: #eff2f5 !important;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}

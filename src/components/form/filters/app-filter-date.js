@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import {DatePicker, Form} from 'antd';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import 'antd/dist/antd.css';
 
 export function AppFilterDate({field, setField, value}) {
@@ -10,9 +11,14 @@ export function AppFilterDate({field, setField, value}) {
     }, [field]
   );
 
+  const disabledDate = current => {
+    return current && current < moment().endOf('day');
+  };
+
   return (
     <Form.Item style={{minWidth: field.minWidth}}>
       <DatePicker
+        disabledDate={disabledDate}
         onChange={onChangeCallback}
         placeholder={field.placeholder}
         value={value.moment}

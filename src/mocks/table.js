@@ -83,4 +83,85 @@ export const contentTableMock = [
       numRow: 2
     }
   },
+  {
+    key: '3',
+    number: {
+      type: TYPES.TEXT,
+      value: 3
+    },
+    date: {
+      type: TYPES.DATE,
+      value: '2022-05-10'
+    },
+    product: {
+      type: TYPES.TEXT,
+      value: PRODUCTS[2]
+    },
+    loadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.LOADING[0],
+      list: 'LOADING',
+      numRow: 3
+    },
+    unloadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.UNLOADING[1],
+      list: 'UNLOADING',
+      numRow: 3
+    }
+  },
+  {
+    key: '4',
+    number: {
+      type: TYPES.TEXT,
+      value: 4
+    },
+    date: {
+      type: TYPES.DATE,
+      value: '2022-05-10'
+    },
+    product: {
+      type: TYPES.TEXT,
+      value: PRODUCTS[2]
+    },
+    loadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.LOADING[0],
+      list: 'LOADING',
+      numRow: 4
+    },
+    unloadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.UNLOADING[1],
+      list: 'UNLOADING',
+      numRow: 4
+    }
+  },
+  {
+    key: '5',
+    number: {
+      type: TYPES.TEXT,
+      value: 5
+    },
+    date: {
+      type: TYPES.DATE,
+      value: '2022-05-10'
+    },
+    product: {
+      type: TYPES.TEXT,
+      value: PRODUCTS[2]
+    },
+    loadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.LOADING[0],
+      list: 'LOADING',
+      numRow: 5
+    },
+    unloadingPlace: {
+      type: TYPES.SELECTOR,
+      value: PLACES.UNLOADING[1],
+      list: 'UNLOADING',
+      numRow: 5
+    }
+  }
 ];
