@@ -2,6 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Table} from 'antd';
 import PropTypes from 'prop-types';
+import 'antd/dist/antd.min.css';
 
 import {getCurrentRow, getTable} from '../../redux/selectors/index.selectors';
 import {deleteRow, updateCol} from '../../redux/reducers/table.reducer';

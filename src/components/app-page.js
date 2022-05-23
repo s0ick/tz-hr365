@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Space, Typography, Spin, Layout} from 'antd';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 import {useElementWidth} from '../hooks/useElementWidth';
 import {configFormMock} from '../mocks/form';

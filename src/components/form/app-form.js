@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Form, Button} from 'antd';
 import PropTypes from 'prop-types';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 import {setValue} from '../../redux/reducers/form.reducer';
 import {setRow} from '../../redux/reducers/table.reducer';

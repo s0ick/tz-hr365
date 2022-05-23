@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import {Select} from 'antd';
 import PropTypes from 'prop-types';
+import 'antd/dist/antd.min.css';
 
 import {randomKey} from '../../../utils/table.utils';
 import {MIN_WIDTH_FIELDS, PLACES} from '../../../utils/constants';

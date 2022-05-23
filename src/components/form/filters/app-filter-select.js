@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {Form, Select} from 'antd';
 import PropTypes from 'prop-types';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 export function AppFilterSelect({field, setField, value}) {
   const onChangeCallback = useCallback(

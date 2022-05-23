@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {DatePicker, Form} from 'antd';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 export function AppFilterDate({field, setField, value}) {
   const onChangeCallback = useCallback(
