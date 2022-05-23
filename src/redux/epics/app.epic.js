@@ -6,8 +6,9 @@ import {formatData} from '../../utils/map.utils';
 import {ACCESS_TOKEN, BASE_URL, NOOP_ACTION} from '../../utils/constants';
 
 import {replaceForm, setIsReady, setValue} from '../reducers/form.reducer';
-import {setRow} from '../reducers/table.reducer';
-import {setCoords, setCurrentRow} from '../reducers/map.reducer';
+import {setRow, updateCol} from '../reducers/table.reducer';
+import {replaceMap, setCoords, setCurrentRow} from '../reducers/map.reducer';
+import {copyObject} from "../../utils/table.utils";
 
 export const appReadyFormEpic = (action$, state$) => action$.pipe(
   ofType(setValue.type),
@@ -45,7 +46,7 @@ export const getLoadingPointCoordsEpic = action$ => action$.pipe(
   filter(action => action.type !== NOOP_ACTION.type)
 );
 
-export const geUnlLoadingPointCoordsEpic = action$ => action$.pipe(
+export const getUnlLoadingPointCoordsEpic = action$ => action$.pipe(
   ofType(setCurrentRow.type),
   mergeMap(state => {
     const {unloadingPlace} = state.payload;
@@ -53,6 +54,32 @@ export const geUnlLoadingPointCoordsEpic = action$ => action$.pipe(
     return ajax
       .get(`${BASE_URL}${unloadingPlace.value}.json?access_token=${ACCESS_TOKEN}`)
       .pipe(map(res => setCoords({point: 'unloadingPoint', data: formatData(res.response.features)})));
+  }),
+  filter(action => action.type !== NOOP_ACTION.type)
+);
+
+export const setUpdatingCurrentRow = (action$, state$) => action$.pipe(
+  ofType(updateCol.type),
+  mergeMap(state => {
+    const currentRow = state$.value.map.currentRow;
+
+    if (currentRow && currentRow?.number.value !== state.payload.numRow) {
+      return NOOP_ACTION;
+    }
+
+    const {value, list} = state.payload;
+    const newRow = copyObject(currentRow);
+
+    if (list === 'LOADING') {
+      newRow.loadingPlace.value = value;
+    } else {
+      newRow.unloadingPlace.value = value;
+    }
+
+    return [
+      replaceMap(),
+      setCurrentRow(newRow)
+    ];
   }),
   filter(action => action.type !== NOOP_ACTION.type)
 );

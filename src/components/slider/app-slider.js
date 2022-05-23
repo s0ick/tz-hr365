@@ -10,8 +10,6 @@ const defaultStyles = {
 };
 
 export function AppSlider({isMouseDown}) {
-
-
   return (
     <div style={{...defaultStyles, backgroundColor: isMouseDown ? '#1890ff' : '#cccccc'}}>
       <div
