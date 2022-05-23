@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const defaultStyles = {
@@ -9,32 +9,13 @@ const defaultStyles = {
   transition: 'background-color .35s'
 };
 
-export function AppSlider({setWidth}) {
-  const [isMouseDown, setIsMouseDown] = useState(false);
+export function AppSlider({isMouseDown}) {
 
-  const onMouseDownBtn = useCallback(
-    () => {
-      setIsMouseDown(true);
-    }, []
-  );
-
-  const onMouseUpOutBtn = useCallback(
-    () => {
-      setIsMouseDown(false);
-    }, []
-  );
-
-  const onMouseMoveBtn = useCallback(
-    event => {
-      if (isMouseDown) {
-        setWidth(event.clientX - 28); // 28: Bth width
-      }
-    }, [isMouseDown]
-  );
 
   return (
     <div style={{...defaultStyles, backgroundColor: isMouseDown ? '#1890ff' : '#cccccc'}}>
       <div
+        id={'slider-button-id'}
         style={{
           position: 'absolute',
           top: '48%',
@@ -47,10 +28,6 @@ export function AppSlider({setWidth}) {
           zIndex: 9999,
           transition: 'width .35s, height .35s, left .35s'
         }}
-        onMouseMove={onMouseMoveBtn}
-        onMouseDown={onMouseDownBtn}
-        onMouseOut={onMouseUpOutBtn}
-        onMouseUp={onMouseUpOutBtn}
       >
       </div>
     </div>
@@ -58,5 +35,5 @@ export function AppSlider({setWidth}) {
 }
 
 AppSlider.propTypes = {
-  setWidth: PropTypes.func
+  isMouseDown: PropTypes.bool
 };

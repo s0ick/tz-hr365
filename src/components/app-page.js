@@ -20,6 +20,7 @@ export function AppPage() {
   const [tableWidth, setTableWidth] = useState(768);
   const [mapWidth, setMapWidth] = useState(768);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
   const setWidth = useCallback(
     x => {
@@ -28,6 +29,38 @@ export function AppPage() {
         setMapWidth(containerWidth - 45 - x);
       }
     }, [containerWidth]
+  );
+
+  const onMouseDownBtn = useCallback(
+    event => {
+      if (event.target.id === 'slider-button-id') {
+        setIsMouseDown(true);
+      }
+    }, []
+  );
+
+  const onMouseUpBtn = useCallback(
+    event => {
+      if (event.target.id === 'slider-button-id') {
+        setIsMouseDown(false);
+      }
+    }, []
+  );
+
+  const onMouseMoveBtn = useCallback(
+    event => {
+      if (isMouseDown) {
+        setWidth(event.clientX - 28); // 28: Btn width
+      }
+    }, [isMouseDown]
+  );
+
+  const onMouseOutBtn = useCallback(
+    event => {
+      if (event.target.id === 'container-slider') {
+        setIsMouseDown(false);
+      }
+    }, []
   );
 
   useEffect(() => {
@@ -52,14 +85,22 @@ export function AppPage() {
       <Content style={{padding: '20px'}}>
         <AppForm config={configFormMock}/>
 
-        {isLoading && <Spin size={'large'}/>}
-        {!isLoading && (
-          <Space align={'start'} size={0}>
-            <AppTable width={tableWidth}/>
-            <AppSlider setWidth={setWidth}/>
-            <AppMap width={mapWidth}/>
-          </Space>
-        )}
+        <div
+          id={'container-slider'}
+          onMouseDown={onMouseDownBtn}
+          onMouseUp={onMouseUpBtn}
+          onMouseMove={onMouseMoveBtn}
+          onMouseOut={onMouseOutBtn}
+        >
+          {isLoading && <Spin size={'large'}/>}
+          {!isLoading && (
+            <Space align={'start'} size={0}>
+              <AppTable width={tableWidth}/>
+              <AppSlider isMouseDown={isMouseDown}/>
+              <AppMap width={mapWidth}/>
+            </Space>
+          )}
+        </div>
       </Content>
     </Layout>
   );
